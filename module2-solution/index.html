@@ -14,7 +14,7 @@
 
       <div class="row">
         <!-- To Buy List -->
-        <div class="col-md-6" data-ng-controller='ToBuyShoppingController as toBuy'>
+        <div class="col-md-6" data-ng-controller='ToBuyShoppingController as toBuyCtrl'>
           <h2>To Buy:</h2>
           <ul>
             <li data-ng-repeat="item in toBuyCtrl.toBuyList">
@@ -28,7 +28,7 @@
         </div>
 
         <!-- Already Bought List -->
-        <div class="col-md-6" data-ng-controller='AlreadyBoughtShoppingController as alreadyBought'>
+        <div class="col-md-6" data-ng-controller='AlreadyBoughtShoppingController as alreadyBoughtCtrl'>
           <h2>Already Bought:</h2>
           <ul>
             <li data-ng-repeat="item in alreadyBoughtCtrl.alreadyBoughtList">
