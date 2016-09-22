@@ -43,10 +43,10 @@
 
         var itemsToBuy = [
             { name: 'water', quantity: 10 },
-            { name: 'honey', quantity: 3 },
-            { name: 'vodka :)', quantity: 4 },
+            { name: 'honey', quantity: 5 },
+            { name: 'vodka :)', quantity: 8 },
             { name: 'chocolate', quantity: 7 },
-            { name: 'gum', quantity: 5 }
+            { name: 'gum', quantity: 2 }
         ];
 
         var itemsAlreadyBought = [];
