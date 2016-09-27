@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app='NarrowItDownApp'>
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+  </head>
+  <body>
+    <div class="container" data-ng-controller='NarrowItDownController as nidCtrl'>
+      <h1>Narrow Down Your Chinese Menu Choice</h1>
+
+      <div class="form-group">
+        <input type="text" placeholder="search term" class="form-control" ng-model="nidCtrl.searchTerm">
+      </div>
+      <div class="form-group narrow-button">
+        <button class="btn btn-primary" data-ng-click="nidCtrl.search();">Narrow It Down For Me!</button>
+      </div>
+
+      <div class="cf"></div>
+
+      <!-- Bonus loader (see Bonus section of the assignment) -->
+      <items-loader-indicator
+          show-loader="nidCtrl.showLoader">
+      </items-loader-indicator>
+
+      <div class="cf"></div>
+
+      <!-- found-items should be implemented as a component -->
+      <found-items 
+          found-items="nidCtrl.founds" 
+          on-remove="nidCtrl.removeItem(index)"
+          show-msg="nidCtrl.showMsg">
+      </found-items>
+
+    </div>
+
+    <script src='scripts/angular.min.js'></script>
+    <script src='scripts/narrow.module.js'></script>
+    <script src='scripts/loader.module.js'></script>
+    <script src='scripts/narrow.controller.js'></script>
+    <script src='scripts/menusearch.service.js'></script>
+    <script src='scripts/founditems.component.js'></script>
+    <script src='scripts/loader.component.js'></script>
+  </body>
+</html>
