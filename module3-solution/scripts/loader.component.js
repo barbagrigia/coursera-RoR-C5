@@ -9,11 +9,12 @@
 				showLoader: '<'
 			}
 		})
-  ;
+	;
 
 	loaderComponentController.$inject = ['$scope'];
 	function loaderComponentController($scope) {
 		var $ctrl = this;
+
 		//console.log('Initializing loader.component..');
 	}
 
