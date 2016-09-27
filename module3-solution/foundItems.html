@@ -1,0 +1,17 @@
+<h3 data-ng-show="$ctrl.foundItems.length">Found:</h3>
+
+<div class="row list" data-ng-show="$ctrl.foundItems.length">
+	<div class="col-md-3"><strong>Name</strong></div>
+  	<div class="col-md-1"><strong>Short Name</strong></div>
+  	<div class="col-md-8"><strong>Description</strong></div>
+</div>
+<div class="row list" data-ng-repeat="found in $ctrl.foundItems">
+	<div class="col-md-3">{{found.name}}</div>
+  	<div class="col-md-1">{{found.short_name}}</div>
+  	<div class="col-md-5">{{found.description}}</div>
+  	<div class="col-md-3">
+  		<button data-ng-click="$ctrl.remove($index);" class="btn btn-warning">Don't want this one!</button>
+  	</div>
+</div>
+
+<div class="error" data-ng-show="$ctrl.showMsg && !$ctrl.foundItems.length">Nothing found!</div>
