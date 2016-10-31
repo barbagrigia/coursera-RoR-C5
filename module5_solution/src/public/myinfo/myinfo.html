@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Your favorite menu item that you picked</h2>
+
+    <br><br>
+
+    <div ng-if="!MyinfoCtrl.isRegistered">
+    	<p>
+    		<span>Not Signed Up Yet. </span>
+    		<a ui-sref="public.signup">
+                Sign Up Now!
+            </a>
+    	</p>
+    </div>
+
+    <div ng-if="MyinfoCtrl.isRegistered">
+    	<user user-data="MyinfoCtrl.userData"></user>
+    	<menu-item menu-item="MyinfoCtrl.menuItem"></menu-item>
+    </div>
+
+
+</div>
+
