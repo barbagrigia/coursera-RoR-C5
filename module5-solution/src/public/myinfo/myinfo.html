@@ -1,20 +1,33 @@
-<div class="container">
-    <h2>Your favorite menu item that you picked</h2>
+<div ng-hide="MyInfoCtrl.userInfo" class="container">
+  <p><i>You haven't signed up yet...</i></p>
+  <button class="btn btn-default btn-lg" ui-sref="public.signup">Sign up now!</button>
+</div>
 
-    <br><br>
-
-    <div ng-if="!MyinfoCtrl.isRegistered">
-    	<p>
-    		<span>Not Signed Up Yet. </span>
-    		<a ui-sref="public.signup">
-                Sign Up Now!
-            </a>
-    	</p>
+<div ng-show="MyInfoCtrl.userInfo" class="container-fluid">
+  <div class="row">
+    <h2> My Info </h2>
+    <div class="col-sm-4">
+      <p>
+        <strong>Name: </strong>
+        {{ MyInfoCtrl.userInfo.firstName }} {{ MyInfoCtrl.userInfo.lastName}}
+      </p>
+      <p>
+        <strong>Email: </strong>
+        {{ MyInfoCtrl.userInfo.emailAddress }}
+      </p>
+      <p>
+        <strong>Phone Number: </strong>
+        {{ MyInfoCtrl.userInfo.phoneNumber }}
+      </p>
     </div>
-
-    <div ng-if="MyinfoCtrl.isRegistered">
-    	<user user-data="MyinfoCtrl.userData"></user>
-    	<menu-item menu-item="MyinfoCtrl.menuItem"></menu-item>
+    <div ng-show="MyInfoCtrl.item" class="col-sm-8">
+      <p>
+        <strong>Favorite Menu Item: </strong>
+      </p>
+      <menu-item menu-item="MyInfoCtrl.item"></menu-item>
     </div>
-
+    <div ng-show="!MyInfoCtrl.item">
+      <i>You don't have a favorite food item.</i>
+    </div>
+  </div>
 </div>
