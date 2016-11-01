@@ -1,4 +1,12 @@
 /* HOME PAGE */
+
+legend {
+  color: white;
+}
+
+.alert {
+  margin-top: 20px;
+}
 .container .jumbotron {
   box-shadow: 0 0 50px #3F0C1F;
   border: 2px solid #3F0C1F;
@@ -182,25 +190,4 @@ h3.menu-item-title {
     float: left;
     width: 100%;
   }
-}
-
-/**
- *  My custom styles
- */
-
-.form-control {
-  width: 40%;
-}
-
-.ng-touched.ng-invalid {
-    border: 2px red solid;
-}
-
-.err-span {
-  color: yellow;
-}
-
-.blue label {
-  font-weight: 400;
-  color: #337ab7;
 }
