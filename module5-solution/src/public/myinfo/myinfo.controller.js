@@ -1,14 +1,19 @@
 (function () {
-    "use strict";
-    angular.module('public').controller('MyinfoController', MyinfoController);
-    MyinfoController.$inject = ['serverMenuService'];
+"use strict";
 
-    function MyinfoController(serverMenuService) {
-        var ctrl = this;
-        ctrl.isRegistered = serverMenuService.isRegistered();
-        ctrl.serverPath = serverMenuService.serverPath;
-        ctrl.menuItem = serverMenuService.getFavourireMenuItem();
-        ctrl.userData = serverMenuService.getUserData();
-        //console.log(ctrl.serverPath);
-    }
+angular.module('public')
+.controller('MyInfoController', MyInfoController);
+
+MyInfoController.$inject = ['user', 'MenuService'];
+function MyInfoController(user, MenuService) {
+  var $ctrl = this;
+
+  $ctrl.userInfo = user;
+
+  MenuService.getItem($ctrl.userInfo.favorite).then(function (response) {
+    $ctrl.item = response;
+  });
+
+};
+
 })();
