@@ -1,71 +1,44 @@
 <div class="container">
+  <fieldset>
+    <legend>Sign Up Form</legend>
+    <form novalidate name="signUpForm">
+      <div class="form-group">
+        <label>First Name:</label>
+        <input class="form-control" name="firstName" type="text" ng-model="SignUpCtrl.user.firstName" required>
+        <span ng-if="signUpForm.firstName.$error.required && signUpForm.firstName.$touched">
+          *Please enter your name.
+        </span>
+      </div>
+      <div class="form-group">
+        <label>Last Name:</label>
+        <input class="form-control" name="lastName" type="text" ng-model="SignUpCtrl.user.lastName" required>
+        <span ng-if="signUpForm.lastName.$error.required && signUpForm.lastName.$touched">
+          *Please enter your last name.
+        </span>
+      </div>
+      <div class="form-group">
+        <label>Email Address:</label>
+        <input class="form-control" name="email" type="email" ng-model="SignUpCtrl.user.emailAddress" required>
+        <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+          *Please enter a valid email address.
+        </span>
+      </div>
+      <div class="form-group">
+        <label>Phone Number:</label>
+        <input class="form-control" name="phoneNumber" type="text" pattern="(\d{3})-(\d{3})-(\d{4})" placeholder="###-###-####" ng-model="SignUpCtrl.user.phoneNumber" required>
+        <span ng-if="signUpForm.phoneNumber.$invalid && signUpForm.phoneNumber.$touched">
+          *Please enter a valid phone number in the format ###-###-####.
+        </span>
+      </div>
+      <div class="form-group">
+        <label>Favorite Dish: (optional)</label>
+        <input class="form-control" name="favorite" placeholder="e.g. A10" type="text" ng-model="SignUpCtrl.user.favorite" ng-model-options="{ updateOn: 'blur mousemove' }" db-check>
+      </div>
+      <span ng-show="signUpForm.favorite.$pending.favorite">Checking if item is available...</span>
+      <div ng-show="signUpForm.favorite.$error.favorite" class="alert alert-danger" role="alert">No such menu number exists. Please try again.</div>
 
-    <h2>Sign Up for Newsletter</h2>
-  
-  	<form name='signupForm' novalidate>
-	  	  <div class="form-group">
-		    <label for="firstname">First name:</label>
-		    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter first name" ng-model="SignupCtrl.firstname" required>
-		    <span class="err-span" ng-if="signupForm.firstname.$error.required && signupForm.firstname.$touched">
-		        *Please enter your first name
-		    </span>
-		  </div>
-		  <div class="form-group">
-		    <label for="lastname">Last name:</label>
-		    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter last name" ng-model="SignupCtrl.lastname" required>
-		    <span class="err-span" ng-if="signupForm.lastname.$error.required && signupForm.lastname.$touched">
-		        *Please enter your last name
-		    </span>
-		  </div>
-		  <div class="form-group">
-		    <label for="email">Email address:</label>
-		    <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" ng-model="SignupCtrl.email" required>
-		    <span class="err-span" ng-if="signupForm.email.$invalid && signupForm.email.$touched">
-	            *Please enter a valid email address: handle@domain format
-	        </span>
-		  </div>
-
-		  <div class="form-group">
-		    <label for="phonenumber">Phone number</label>
-		    <input type="text" class="form-control" name="phonenumber" id="phonenumber" placeholder="Phone ###-###-####" pattern="(\d{3})-(\d{3})-(\d{4})" ng-model="SignupCtrl.phonenumber" required>
-	          <span class="err-span" ng-if="signupForm.phonenumber.$invalid && signupForm.phonenumber.$touched">
-	            *Please enter a valid phone number in the format ###-###-####
-	          </span>
-		  </div>
-
-		  <div class="form-group">
-		    <label for="menunumber">Menu number (short name) of your favorite dish</label>
-		    <input type="text" class="form-control" id="menunumber" placeholder="Enter menu number of your favorite dish, e.g. A10" type="text" ng-model="SignUpCtrl.user.favorite" ng-model-options="{ updateOn: 'blur mousemove' }" db-check>
-		    	<span class="err-span" ng-if="signupForm.menunumber.$invalid && signupForm.menunumber.$touched">
-	            	*Please enter Menu Number (short name)
-	          	</span>
-                        <span ng-show="signUpForm.favorite.$pending.favorite">Checking if item is available...</span>
-                        <div ng-show="signUpForm.favorite.$error.favorite" class="alert alert-danger" role="alert">No such menu number exists. Please try again.</div>
-		</div>
-
-
-	  	<button type="submit" class="btn btn-primary" ng-disabled="signupForm.$invalid" ng-click="SignupCtrl.submit(); signupForm.$setUntouched();">Sign up</button>
-
-	  	<!--
-	  	<button type="submit" class="btn btn-primary" ng-click="SignupCtrl.submit()">Sign up</button>
-		-->
-
-	  	<!--
-      	<div style="margin-top: 10px;">
-        	Form valid? {{ signupForm.$valid }}
-        </div>
-		-->
-
-		<!--
-		<div style="margin-top: 10px;">
-        	{{ SignupCtrl.favDish }}
-      	</div>
-      	-->
-
-      	<div class="err-span" style="margin-top: 10px;">
-        	{{ SignupCtrl.errorResponse }}
-      	</div>
-
-	</form>
-
+      <button class="btn btn-default" ng-disabled="signUpForm.$invalid" ng-click="SignUpCtrl.submit()">Submit</button><br>
+      <div ng-if="SignUpCtrl.completed" class="alert alert-success" role="alert">Your information has been saved.</div>
+    </form>
+  </legend>
 </div>
